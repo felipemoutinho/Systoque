@@ -1,0 +1,48 @@
+<br>
+<div class="card">
+  <div class="card-header alpha beta">
+    Faturamento por período
+  </div>
+  <div class="card-body">
+
+      <form novalidate [formGroup]="faturamentoForm">
+          <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="DataPedido">Data Início:</label>
+                <input type="date" class="form-control" formControlName="dataInicio">
+              </div>
+              <div class="col-md-4 mb-3">
+                  <label for="DataPrevEntrega">Data Final:</label>
+                  <input type="date" class="form-control" formControlName="dataFinal">
+              </div>
+          </div>
+          <button type="submit" (click)="getFaturamento(faturamentoForm.value)" class="btn alpha beta">Visualizar Faturamento</button>
+          
+      </form>
+      <br>
+      
+      <div class="col-xs-12 table-responsive">
+
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th class="text-center">Código Pedido</th>
+            <th class="text-center">Data Pedido</th>
+            <th class="text-center">Total Pedido</th>
+          </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let fat of faturamento">
+                  <td class="text-center">{{fat.codvenda}}</td>
+                  <td class="text-center">{{fat.DataVenda | date:'dd/MM/yyyy'}}</td>
+                  <td class="text-center">{{fat.TotalVenda | currency:'BRL': true}}</td>
+              </tr>
+          </tbody>
+        </table>
+    </div>
+    <h5 class="text-right">Total Geral: {{totalGeral() | currency:'BRL': true}}</h5> 
+
+    </div>
+</div>
+
+

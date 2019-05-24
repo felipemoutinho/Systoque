@@ -1,0 +1,47 @@
+<br>
+<div class="card">
+  <div class="card-header alpha beta">
+    Registrar Vendedor
+  </div>
+
+  <div class="card-body">
+    
+    <form (ngSubmit)="save()" [formGroup]="vendedoresForm" novalidate>
+      
+      
+        
+        <app-input-container errorMessage="Nome obrigatório!" label="Nome Completo:">
+            <div class="col-md-8">
+              <input type="text" class="form-control" placeholder="Nome Completo" formControlName="Nome" />
+            </div>
+          </app-input-container>
+      
+          
+         
+          
+          <app-input-container errorMessage="Data de nascimento obrigatória!" label="Data Nascimento:">
+            <div class="col-md-4">
+              <input type="date" class="form-control" formControlName="DataNasc">
+            </div>
+          </app-input-container>
+        
+  
+        
+        
+          <app-input-container errorMessage="Valor inválido!" label="Percentual comissão:">
+            <div class="col-md-4">
+              <input type="number" class="form-control" placeholder="Percentual de comissão (0-1)" formControlName="comissao" step="0.1" min="0" max="1">
+            </div>
+          </app-input-container>
+      
+      <button type="submit" class="btn alpha beta" (click)="create(vendedoresForm.value)" [disabled]="!vendedoresForm.valid">Cadastrar</button>
+
+      
+    </form>
+  </div>
+</div>
+
+<br>Dirty: {{vendedoresForm.dirty}}
+<br>Touched: {{vendedoresForm.touched}}
+<br>Valid: {{vendedoresForm.valid}}
+<br>Value: {{vendedoresForm.value | json}}

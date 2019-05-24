@@ -1,0 +1,33 @@
+<br>
+<div class="card">
+  <div class="card-header alpha beta">
+    Produtos em Estoque
+  </div>
+  <div class="card-body">
+    <button type="button" (click)="gerarRelatorio()" class="btn alpha beta">Visualizar Produtos em Estoque</button>
+    <br><br>
+      
+      <div class="col-xs-12 table-responsive">
+
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th class="text-center">Código Produto</th>
+            <th class="text-center">Produto</th>
+            <th class="text-center">Quantidade Atual</th>
+          </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let p of produtos">
+                  <td class="text-center">{{p.cb}}</td>
+                  <td class="text-center">{{p.nomeProduto}}</td>
+                  <td class="text-center">{{p.qtdProd}}</td>
+               </tr>
+          </tbody>
+        </table>
+    </div>
+    
+
+  </div>
+</div>
+

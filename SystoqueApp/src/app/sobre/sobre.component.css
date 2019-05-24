@@ -1,0 +1,25 @@
+a {
+  padding-left: 10px;  
+  bottom: 10px;
+  
+    
+}
+.row {
+    padding-top: 20px;
+}
+
+img{
+    width: 50px;
+    vertical-align: middle;
+}
+
+
+
+li {
+    list-style: none;
+    padding-top: 10px;
+   position: relative;
+  bottom: 1px;
+  right: 100px;
+ 
+}

@@ -1,0 +1,73 @@
+<button class="navbar-toggler btn-t" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon btn-t"></span>
+</button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="nav">
+          <li class="nav-item">
+              <a class="nav-link beta" [routerLink]="['/']"> Home </a>
+          </li>
+
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle beta" href="#" id="navbardrop" data-toggle="dropdown">
+                 Movimentos 
+              </a>
+              <div class="dropdown-menu">
+                <h5 class="dropdown-header"> Vendedores </h5>
+                <a class="dropdown-item" [routerLink]="['/vendedores']">Cadastro Vendedores</a>
+                <a class="dropdown-item" [routerLink]="['/vendedores']">Listar Vendedores</a>
+                <a class="dropdown-item" [routerLink]="['/vendedores']">Alterar Vendedores</a>
+                <h5 class="dropdown-header">Produtos</h5>
+                <a class="dropdown-item" [routerLink]="['/produtos']">Cadastrar Produtos</a>
+                <a class="dropdown-item" [routerLink]="['/']">Listar Produtos</a>
+                <a class="dropdown-item" [routerLink]="['/']">Alterar Produtos</a>
+              </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link beta" [routerLink]="['/vendas']"> Lançamentos </a>
+            </li>
+    
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle beta" href="#" id="navbardrop" data-toggle="dropdown">
+                   Relatórios 
+                </a>
+                <div class="dropdown-menu">
+                  <h5 class="dropdown-header"> Relatórios </h5>
+                  <a class="dropdown-item" [routerLink]="['/extrato-comissao']">Extrato de Comissão</a>
+                  <a class="dropdown-item" [routerLink]="['/produtos-em-falta']">Produtos em Falta</a>
+                  <a class="dropdown-item" [routerLink]="['/produtos-em-estoque']">Estoque Atual</a>
+                  <a class="dropdown-item" [routerLink]="['/faturamento']">Faturamento por período</a>
+                </div>
+              </li>
+    
+            <li class="nav-item">
+                <a class="nav-link beta" [routerLink]="['/sobre']"> Sobre </a> 
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link beta logout" href="#" data-toggle="modal" data-target="#logoutModal"><i class="fa fa-sign-out"></i> Sair do sistema</a>
+            </li>
+        
+        </ul>
+    </div> 
+    
+    
+
+  <br>
+
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Pronto para sair do sistema?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Selecione "Logout" se você deseja encessar sua sessão no sistema.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+  </div>

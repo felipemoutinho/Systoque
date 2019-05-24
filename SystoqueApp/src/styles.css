@@ -1,0 +1,73 @@
+/* You can add global styles to this file, and also import other style files */
+
+.alpha { 
+  background-color: rgba(116, 48, 157);
+}
+
+.btn.alpha:hover {
+  color: orange;
+}
+
+.beta {
+  color: white;
+}
+
+.reverse {
+  background-color:white;
+  color: rgba(116, 48, 157);
+  border-color:  rgba(116, 48, 157);
+}
+
+.reverse:hover {
+  background-color:rgba(116, 48, 157);
+  color: white;
+  border-color:  rgba(116, 48, 157);
+}
+
+a:hover {
+  color: orange;
+}
+
+a.dropdown-item:hover {
+  color: orange;
+  background-color:  rgba(116, 48, 157);
+}
+
+h5.dropdown-header, th {
+  font-weight: bold;
+  color: rgba(116, 48, 157);
+}
+
+
+.logout {
+  position: absolute;
+  
+  right: 160px;
+}
+
+.btn-t {
+  text-decoration-color: white;
+}
+
+.has-success input {
+  border: 1px solid green;
+}
+
+.has-error input {
+  border: 1px solid red;
+}
+
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+    height: auto;
+    padding: 15px;
+  }
+  .logout {
+    position: relative;
+    right: auto;
+  }
+  .row.content {height:auto;} 
+}
+

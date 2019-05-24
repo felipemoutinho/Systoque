@@ -1,0 +1,102 @@
+<br>
+<div class="card">
+  <div class="card-header alpha beta">
+    Registro de Vendas
+  </div>
+  <div class="card-body">
+
+      <form novalidate [formGroup]="vendaForm">
+          <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="DataPedido">Data Pedido:</label>
+                <input type="date" class="form-control" formControlName="dataPedido">
+              </div>
+              <div class="col-md-4 mb-3">
+                  <label for="DataPrevEntrega">Data Previsão Entrega:</label>
+                  <input type="date" class="form-control" formControlName="dataPrevEntrega">
+              </div>
+              <div class="col-md-4 mb-3">
+                  <label for="DataPrevEntrega">Vendedor:</label>
+                  <select class="custom-select"  formControlName="vendedor">
+                    <option *ngFor="let v of vendedores" value="{{v.Matricula}}">{{v.Nome}}</option>
+                  </select>
+              </div>
+          </div>
+          
+          <div class="card-subtitle">
+            <h5 style="color:rgba(116, 48, 157);text-align: center">Incluir no Pedido</h5>
+          </div>
+          <hr>
+          <div class="form-row">
+              <div class="col-md-4 mb-3">
+                  <label for="Codigo">Código Produto:</label>
+                  <input type="text" class="form-control" formControlName="codProduto">
+              </div>
+              <div class="col-md-4 mb-3">
+                  <label for="Nome">Nome Produto:</label>
+                  <input type="text" class="form-control"  formControlName="nomeProduto">
+              </div>
+          </div>
+          <div class="form-row">
+              <div class="col-md-4 mb-3">
+                  <label for="Codigo">Quantidade:</label>
+                  <input type="number" class="form-control" formControlName="quantidade">
+              </div>
+              <div class="col-md-4 mb-3">
+                  <label for="Nome">Valor Produto:</label>
+                  <input type="number" class="form-control"  formControlName="valorProduto">
+              </div>
+              
+              <div class="form-group col-md-6">
+                <button type="button" class="btn alpha beta" (click)="procurarProduto(vendaForm.get('codProduto').value)">Pesquisar Produto</button>
+              </div>
+              <div class="col-md-3 mb-3">
+                <button type="button" class="btn reverse mb-2" (click)="addItens()">Incluir Produto</button>
+              </div> 
+          </div>
+          
+          <hr>
+          <div class="card-subtitle">
+              <h5 style="color:rgba(116, 48, 157);text-align: center">Itens do Pedido</h5>
+          </div>
+          
+          <div class="col-xs-12 table-responsive">
+
+              <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th class="text-center">Código Produto</th>
+                  <th class="text-center">Nome Produto</th>
+                  <th class="text-center">Valor Unitário</th>
+                  <th class="text-center">Quantidade</th>
+                  <th class="text-right">Subtotal</th>
+                  <th class="text-right"></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let i of itens">
+                        <td class="text-center">{{i.codProduto}}</td>
+                        <td class="text-center">{{i.nomeProduto}}</td>
+                        <td class="text-center">{{i.valorUnitario}}</td>
+                        <td class="text-center">
+                            
+                            {{i.quantidade}}
+                            
+                        </td>
+                        <td class="text-right">{{i.subtotal | currency:'BRL': true}}</td>
+                        <td class="text-right"><a class="btn reverse" (click)="removerItem(i)"><i class="fa fa-trash"></i></a></td>
+                    </tr>
+                </tbody>
+              </table>
+          </div>
+          <h5 class="text-right">Total Geral: {{total | currency:'BRL': true}}</h5>
+            
+          <button type="submit" (click)="registrarVenda(vendaForm.value)" class="btn alpha beta">Confirmar Pedido</button>
+      </form>
+  </div>
+</div>
+
+<br>Dirty: {{vendaForm.dirty}}
+<br>Touched: {{vendaForm.touched}}
+<br>Valid: {{vendaForm.valid}}
+<br>Value: {{vendaForm.value | json}}

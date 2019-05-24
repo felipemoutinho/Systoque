@@ -1,0 +1,57 @@
+<br>
+<div class="card">
+  <div class="card-header alpha beta">
+    Extrato de comissão por período
+  </div>
+  <div class="card-body">
+
+      <form novalidate [formGroup]="extratoForm">
+          <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="DataPedido">Data Início:</label>
+                <input type="date" class="form-control" formControlName="dataInicio">
+              </div>
+              <div class="col-md-4 mb-3">
+                  <label for="DataPrevEntrega">Data Final:</label>
+                  <input type="date" class="form-control" formControlName="dataFinal">
+              </div>
+              <div class="col-md-4 mb-3">
+                  <label for="DataPrevEntrega">Vendedor:</label>
+                  <select class="custom-select" formControlName="vendedor">
+                    <option *ngFor="let v of vendedores" value="{{v.Matricula}}">{{v.Nome}}</option>
+                  </select>
+              </div>
+          </div>
+          <button type="submit" (click)="getExtrato(extratoForm.value)" class="btn alpha beta">Visualizar</button>
+          
+      </form>
+      <br>
+      
+      <div class="col-xs-12 table-responsive">
+
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th class="text-center">Código Pedido</th>
+            <th class="text-center">Data Pedido</th>
+            <th class="text-center">Total Pedido</th>
+            <th class="text-center">Comissão</th>
+            
+          </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let e of extrato">
+                  <td class="text-center">{{e.codvenda}}</td>
+                  <td class="text-center">{{e.DataVenda | date:'dd/MM/yyyy'}}</td>
+                  <td class="text-center">{{e.TotalVenda | currency:'BRL': true}}</td>
+                  <td class="text-center">{{e.ComissaoTotal | currency:'BRL': true}}</td>
+                  
+              </tr>
+          </tbody>
+        </table>
+    </div>
+    <h5 class="text-right">Total Geral: {{totalGeral() | currency:'BRL': true}}</h5> 
+
+    </div>
+</div>
+

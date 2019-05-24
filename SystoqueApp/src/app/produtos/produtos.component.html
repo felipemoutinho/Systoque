@@ -1,0 +1,90 @@
+<br>
+<div class="card">
+  <div class="card-header alpha beta">
+    Registrar produto
+  </div>
+  <div class="card-body">
+    <form novalidate [formGroup]="produtosForm">
+      
+      <app-input-container errorMessage="Código obrigatório!" label="Código produto:">
+        <div class="col-md-8">
+          <input class="form-control" type="text" placeholder="Código de Barras Produto" formControlName="cb" />
+        </div>
+      </app-input-container>
+
+      <app-input-container errorMessage="Nome obrigatório!" label="Nome produto:">
+        <div class="col-md-8">
+          <input class="form-control" type="text" placeholder="Nome Produto" formControlName="nomeProduto" />
+        </div>
+      </app-input-container>
+
+      <app-input-container errorMessage="Valor obrigatório!" label="Valor venda:">
+        <div class="col-md-2">
+          <input class="form-control" type="text" placeholder="R$ 0,00" formControlName="valorVenda" />
+        </div>
+      </app-input-container>
+
+      <app-input-container errorMessage="Quantidade obrigatória!" label="Quantidade Estoque:">
+        <div class="col-md-2">
+          <input class="form-control" type="text" placeholder="Qtd Estoque" formControlName="qtdProd" />
+        </div>
+      </app-input-container>
+
+      <app-input-container errorMessage="Quantidade obrigatória!" label="Quantidade Mínima:">
+        <div class="col-md-2">
+          <input class="form-control" type="text" placeholder="Qtd Mínina" formControlName="qtdMinProd" />
+        </div>
+      </app-input-container>
+
+      
+
+      <div class="form-group row mb-2">
+        <div class="col-md-8">
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox" formControlName="perecivel"> Produto Perecível
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="!produtosForm.get('perecivel').value">
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label"
+                for="firstNameId">Prazo Garantia: </label>
+          <div class="col-md-3">
+            <input class="form-control" type="text" placeholder="Prazo Garantia"  formControlName="prazoGarantia"/>
+          </div>
+        </div>
+      </div>
+
+      
+      <div *ngIf="produtosForm.get('perecivel').value">
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label"
+                for="firstNameId">Data Validade: </label>
+          <div class="col-md-3">
+            <input class="form-control" type="date"  formControlName="dataValidade" />
+          </div>
+        </div>
+
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label"
+                for="firstNameId">Lote Número: </label>
+          <div class="col-md-3">
+            <input class="form-control" type="text" placeholder="Lote Número" formControlName="lote" />
+          </div>
+        </div>
+      </div>
+      <br>
+      
+      <button type="submit" class="btn alpha beta" (click)="cadastrarProduto(produtosForm.value)" [disabled]="!produtosForm.valid">Cadastrar Produto</button>
+      
+    </form> 
+  </div>
+</div>
+<br>
+<br>Dirty: {{produtosForm.dirty}}
+<br>Touched: {{produtosForm.touched}}
+<br>Valid: {{produtosForm.valid}}
+<br>Value: {{produtosForm.value | json}}

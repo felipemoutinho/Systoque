@@ -1,0 +1,12 @@
+<div class="form-group row mb-2" [class.has-success] = "hasSuccess()"
+                                 [class.has-error] = "hasError()">
+        
+  <label class="col-md-2 col-form-label">{{label}}</label>
+  
+    <ng-content></ng-content>
+  
+  
+  
+  <span class="text-success" *ngIf="hasSuccess()"><i class="fa fa-check"></i>Ok</span>
+  <span class="text-danger" *ngIf="hasError()"><i class="fa fa-remove"> {{errorMessage}} </i></span>
+</div>
